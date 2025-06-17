@@ -92,9 +92,7 @@ IDxcBlob* CompieShadaer(
 	
 	IDxcBlobEncoding* shaderSource = nullptr;
 	HRESULT hr = dxcUtils->LoadFile(filePath.c_str(), nullptr, &shaderSource);
-	
 	assert(SUCCEEDED(hr));
-	
 	DxcBuffer shaderSourceBuffer;
 	shaderSourceBuffer.Ptr = shaderSource->GetBufferPointer();
 	shaderSourceBuffer.Size = shaderSource->GetBufferSize();
@@ -108,7 +106,7 @@ IDxcBlob* CompieShadaer(
 		L"-Od",                 
 		L"-Zpr",                
 	};
-	
+	assert(SUCCEEDED(hr));
 	IDxcResult* shaderResult = nullptr;
 	hr = dxcCompiler->Compile(
 		&shaderSourceBuffer,       
