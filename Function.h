@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "Vector3.h"
 #include <math.h>
 #include <time.h>
@@ -11,79 +11,79 @@
 
 class Function {
 public:
-	// ‰ÁZ
+	// åŠ ç®—
 	Vector3 Add(const Vector3& v1, const Vector3& v2);
 
-	// Œ¸Z
+	// æ¸›ç®—
 	Vector3 Subtract(const Vector3& v1, const Vector3& v2);
 
-	// ƒXƒJƒ‰[”{
+	// ã‚¹ã‚«ãƒ©ãƒ¼å€
 	Vector3 Multiply(float scalar, const Vector3& v1);
 
-	// “àÏ
+	// å†…ç©
 	float Dot(const Vector3& v1, const Vector3& v2);
 
-	// ’·‚³(ƒmƒ‹ƒ€)
+	// é•·ã•(ãƒãƒ«ãƒ )
 	float Length(const Vector3& v1);
 
-	// ³‹K‰»
+	// æ­£è¦åŒ–
 	Vector3 Normalize(const Vector3& v);
 
-	// 1.s—ñ‚Ì‰Á–@
+	// 1.è¡Œåˆ—ã®åŠ æ³•
 	Matrix4x4 Add(const Matrix4x4& m1, const Matrix4x4& m2);
 
-	// 2.s—ñ‚ÌŒ¸–@
+	// 2.è¡Œåˆ—ã®æ¸›æ³•
 	Matrix4x4 Subtract(const Matrix4x4& m1, const Matrix4x4& m2);
 
-	// 3.s—ñ‚ÌÏ
+	// 3.è¡Œåˆ—ã®ç©
 	Matrix4x4 Multiply(const Matrix4x4& m1, const Matrix4x4& m2);
 
-	// 4.‹ts—ñ
+	// 4.é€†è¡Œåˆ—
 	Matrix4x4 Inverse(const Matrix4x4& m);
 
-	// 5.“]’us—ñ
+	// 5.è»¢ç½®è¡Œåˆ—
 	Matrix4x4 Transpose(const Matrix4x4& m);
 
-	// 6.’PˆÊs—ñ‚Ìì¬
+	// 6.å˜ä½è¡Œåˆ—ã®ä½œæˆ
 	Matrix4x4 MakeIdentity4x4();
 
-	// 1.•½sˆÚ“®s—ñ
+	// 1.å¹³è¡Œç§»å‹•è¡Œåˆ—
 	Matrix4x4 MakeTranslateMatrix(const Vector3& translate);
 
-	// 2.Šg‘åk¬s—ñ
+	// 2.æ‹¡å¤§ç¸®å°è¡Œåˆ—
 	Matrix4x4 MakeScaleMatrix(const Vector3& scale);
 
-	// 3.À•W•ÏŠ·
+	// 3.åº§æ¨™å¤‰æ›
 	Vector3 Transform(const Vector3& vector, const Matrix4x4& matrix);
 
-	// X²‰ñ“]s—ñ
+	// Xè»¸å›è»¢è¡Œåˆ—
 	Matrix4x4 MakeRotateXMatrix(float radian);
 
-	// Y²‰ñ“]s—ñ
+	// Yè»¸å›è»¢è¡Œåˆ—
 	Matrix4x4 MakeRotateYMatrix(float radian);
 
-	// Z²‰ñ“]s—ñ
+	// Zè»¸å›è»¢è¡Œåˆ—
 	Matrix4x4 MakeRotateZMatrix(float radian);
 
-	// 3ŸŒ³ƒAƒtƒBƒ“•ÏŠ·s—ñ
+	// 3æ¬¡å…ƒã‚¢ãƒ•ã‚£ãƒ³å¤‰æ›è¡Œåˆ—
 	Matrix4x4 MakeAffineMatrix(const Vector3& scale, const Vector3& rotate, const Vector3& translate);
 
-	// “§‹“Š‰es—ñ
+	// é€è¦–æŠ•å½±è¡Œåˆ—
 	static Matrix4x4 MakePerspectiveFovMatrix(float fovY, float aspectRatio, float nearClip, float farClip);
 
-	// ³Ë‰es—ñ
+	// æ­£å°„å½±è¡Œåˆ—
 	static Matrix4x4 MakeOrthographicMatrix(float left, float top, float right, float bottom, float nearClip, float farClip);
 
-	// ƒrƒ…[ƒ|[ƒg•ÏŠ·s—ñ
+	// ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆå¤‰æ›è¡Œåˆ—
 	static Matrix4x4 MakeViewportMatrix(float left, float top, float width, float height, float minDepth, float maxDepth);
 
-	//ƒNƒƒXÏ
+	//ã‚¯ãƒ­ã‚¹ç©
 	Vector3 Cross(const Vector3& v1, const Vector3& v2);
 
 	
 
 private:
-	// Œ‹‰Ê‚Ì•\¦
+	// çµæœã®è¡¨ç¤º
 	static const int kRowHeight = 20;
 	static const int kColumnWidth = 60;
 };

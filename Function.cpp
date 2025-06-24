@@ -1,4 +1,4 @@
-#include "Function.h"
+ï»¿#include "Function.h"
 
 Vector3 Function::Add(const Vector3& v1, const Vector3& v2) {
 	Vector3 result = {};
@@ -51,25 +51,25 @@ Vector3 Function::Normalize(const Vector3& v2) {
 Matrix4x4 Function::Add(const Matrix4x4& m1, const Matrix4x4& m2) {
 	Matrix4x4 result{};
 
-	// 1s–Ú
+	// 1è¡Œç›®
 	result.m[0][0] = m1.m[0][0] + m2.m[0][0];
 	result.m[0][1] = m1.m[0][1] + m2.m[0][1];
 	result.m[0][2] = m1.m[0][2] + m2.m[0][2];
 	result.m[0][3] = m1.m[0][3] + m2.m[0][3];
 
-	// 2s–Ú
+	// 2è¡Œç›®
 	result.m[1][0] = m1.m[1][0] + m2.m[1][0];
 	result.m[1][1] = m1.m[1][1] + m2.m[1][1];
 	result.m[1][2] = m1.m[1][2] + m2.m[1][2];
 	result.m[1][3] = m1.m[1][3] + m2.m[1][3];
 
-	// 3s–Ú
+	// 3è¡Œç›®
 	result.m[2][0] = m1.m[2][0] + m2.m[2][0];
 	result.m[2][1] = m1.m[2][1] + m2.m[2][1];
 	result.m[2][2] = m1.m[2][2] + m2.m[2][2];
 	result.m[2][3] = m1.m[2][3] + m2.m[2][3];
 
-	// 4s–Ú
+	// 4è¡Œç›®
 	result.m[3][0] = m1.m[3][0] + m2.m[3][0];
 	result.m[3][1] = m1.m[3][1] + m2.m[3][1];
 	result.m[3][2] = m1.m[3][2] + m2.m[3][2];
@@ -81,25 +81,25 @@ Matrix4x4 Function::Add(const Matrix4x4& m1, const Matrix4x4& m2) {
 Matrix4x4 Function::Subtract(const Matrix4x4& m1, const Matrix4x4& m2) {
 	Matrix4x4 result = {};
 
-	// 1s–Ú
+	// 1è¡Œç›®
 	result.m[0][0] = m1.m[0][0] - m2.m[0][0];
 	result.m[0][1] = m1.m[0][1] - m2.m[0][1];
 	result.m[0][2] = m1.m[0][2] - m2.m[0][2];
 	result.m[0][3] = m1.m[0][3] - m2.m[0][3];
 
-	// 2s–Ú
+	// 2è¡Œç›®
 	result.m[1][0] = m1.m[1][0] - m2.m[1][0];
 	result.m[1][1] = m1.m[1][1] - m2.m[1][1];
 	result.m[1][2] = m1.m[1][2] - m2.m[1][2];
 	result.m[1][3] = m1.m[1][3] - m2.m[1][3];
 
-	// 3s–Ú
+	// 3è¡Œç›®
 	result.m[2][0] = m1.m[2][0] - m2.m[2][0];
 	result.m[2][1] = m1.m[2][1] - m2.m[2][1];
 	result.m[2][2] = m1.m[2][2] - m2.m[2][2];
 	result.m[2][3] = m1.m[2][3] - m2.m[2][3];
 
-	// 4s–Ú
+	// 4è¡Œç›®
 	result.m[3][0] = m1.m[3][0] - m2.m[3][0];
 	result.m[3][1] = m1.m[3][1] - m2.m[3][1];
 	result.m[3][2] = m1.m[3][2] - m2.m[3][2];
@@ -368,21 +368,21 @@ Matrix4x4 Function::MakeAffineMatrix(const Vector3& scale, const Vector3& rotate
 
 	Matrix4x4 result = {};
 
-	// Šg‘åk¬s—ñ
+	// æ‹¡å¤§ç¸®å°è¡Œåˆ—
 	Matrix4x4 scaleMatrix = MakeScaleMatrix(scale);
-	// ‰ñ“]s—ñ
+	// å›è»¢è¡Œåˆ—
 	Matrix4x4 rotateXMatrix = MakeRotateXMatrix(rotate.x);
 	Matrix4x4 rotateYMatrix = MakeRotateYMatrix(rotate.y);
 	Matrix4x4 rotateZMatrix = MakeRotateZMatrix(rotate.z);
-	// •½sˆÚ“®s—ñ
+	// å¹³è¡Œç§»å‹•è¡Œåˆ—
 	Matrix4x4 translationMatrix = MakeTranslateMatrix(translate);
-	// Šg‘åk¬s—ñ‚Æ‰ñ“]s—ñ‚ğŠ|‚¯Z
+	// æ‹¡å¤§ç¸®å°è¡Œåˆ—ã¨å›è»¢è¡Œåˆ—ã‚’æ›ã‘ç®—
 	result = Multiply(scaleMatrix, rotateXMatrix);
-	// ‚³‚ç‚ÉY²‰ñ“]s—ñ‚ğŠ|‚¯Z
+	// ã•ã‚‰ã«Yè»¸å›è»¢è¡Œåˆ—ã‚’æ›ã‘ç®—
 	result = Multiply(result, rotateYMatrix);
-	// ‚³‚ç‚ÉZ²‰ñ“]s—ñ‚ğŠ|‚¯Z
+	// ã•ã‚‰ã«Zè»¸å›è»¢è¡Œåˆ—ã‚’æ›ã‘ç®—
 	result = Multiply(result, rotateZMatrix);
-	// ÅŒã‚É•½sˆÚ“®s—ñ‚ğŠ|‚¯Z
+	// æœ€å¾Œã«å¹³è¡Œç§»å‹•è¡Œåˆ—ã‚’æ›ã‘ç®—
 	result = Multiply(result, translationMatrix);
 
 	return result;
@@ -468,7 +468,7 @@ Matrix4x4 Function::MakeViewportMatrix(float left, float top, float width, float
 	return result;
 }
 
-// ƒNƒƒXÏ
+// ã‚¯ãƒ­ã‚¹ç©
 Vector3 Function::Cross(const Vector3& v1, const Vector3& v2) {
 
 	Vector3 result = { v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x };
