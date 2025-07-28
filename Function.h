@@ -4,6 +4,8 @@
 #include <time.h>
 #define _USE_MATH_DEFINE
 #include "Matrix4x4.h"
+//#include <Novice.h>
+#include "Vector4.h"
 #include <assert.h>
 #include <cmath>
 #include <stdio.h>
@@ -80,7 +82,16 @@ public:
 	//ƒNƒƒXÏ
 	Vector3 Cross(const Vector3& v1, const Vector3& v2);
 
-	
+	/// <summary>
+	/// •`‰æŠÖ”
+	/// </summary>
+	/// <param name="x"></param>
+	/// <param name="y"></param>
+	/// <param name="matrix"></param>
+	/// <param name="label"></param>
+	/*void MatrixScreenPrintf(int x, int y, const Matrix4x4& matrix, const char* label);
+
+	/*void vectorScreenPrintf(int x, int y, const Vector3& vector, const char* label);*/
 
 private:
 	// Œ‹‰Ê‚Ì•\¦
