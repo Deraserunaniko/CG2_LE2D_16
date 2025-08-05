@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 #include "Vector4.h"
 #include "Vector3.h"
 #include "Vector2.h"
 
 /// <summary>
-/// ’¸“_ƒf[ƒ^‚ÌŠg’£
+/// é ‚ç‚¹ãƒ‡ãƒ¼ã‚¿ã®æ‹¡å¼µ
 /// </summary>
 struct VertexData {
 	Vector4 position;
