@@ -1,7 +1,7 @@
-ï»¿#pragma once
+#pragma once
 
 /// <summary>
-/// 3æ¬¡å…ƒãƒ™ã‚¯ãƒˆãƒ«
+/// 3ŽŸŒ³ƒxƒNƒgƒ‹
 /// </summary>
 struct Vector3 final {
 	float x;

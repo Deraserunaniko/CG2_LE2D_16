@@ -1,4 +1,4 @@
-ï»¿#pragma once
+#pragma once
 struct Matrix4x4 {
 
 	float m[4][4];
@@ -8,40 +8,40 @@ struct Vector3 {
 };
 
 namespace MatrixMath {
-	// è¡Œåˆ—ã®åŠ æ³•
+	// s—ñ‚Ì‰Á–@
 	Matrix4x4 Add(const Matrix4x4& m1, const Matrix4x4& m2);
-	// è¡Œåˆ—ã®æ¸›æ³•
+	// s—ñ‚ÌŒ¸–@
 	Matrix4x4 Subtract(const Matrix4x4& m1, const Matrix4x4& m2);
-	// è¡Œåˆ—ã®ç©
+	// s—ñ‚ÌÏ
 	Matrix4x4 Multipty(const Matrix4x4& m1, const Matrix4x4& m2);
-	// é€†è¡Œåˆ—
+	// ‹ts—ñ
 	Matrix4x4 Inverse(const Matrix4x4& m);
-	// è»¢ç½®è¡Œåˆ—
+	// “]’us—ñ
 	Matrix4x4 Transpoce(const Matrix4x4& m);
-	// å˜ä½è¡Œåˆ—ã®ä½œæˆ
+	// ’PˆÊs—ñ‚Ìì¬
 	Matrix4x4 MakeIdentity4x4();
-	// å¹³è¡Œç§»å‹•è¡Œåˆ—
+	// •½sˆÚ“®s—ñ
 	Matrix4x4 MakeTranslate(const Vector3& translate);
-	// æ‹¡å¤§ç¸®å°è¡Œåˆ—
+	// Šg‘åk¬s—ñ
 	Matrix4x4 MakeScale(const Vector3& scale);
 
-	// Xè»¸ã®å›è»¢è¡Œåˆ—
+	// X²‚Ì‰ñ“]s—ñ
 	Matrix4x4 MakeRotateX(float radian);
-	// Yè»¸ã®å›è»¢è¡Œåˆ—
+	// Y²‚Ì‰ñ“]s—ñ
 	Matrix4x4 MakeRotateY(float radian);
-	// Zè»¸ã®å›è»¢è¡Œåˆ—
+	// Z²‚Ì‰ñ“]s—ñ
 	Matrix4x4 MakeRotateZ(float radian);
 
-	// 3æ¬¡å…ƒã‚¢ãƒ•ã‚£ãƒ³å¤‰æ›è¡Œåˆ—
+	// 3ŸŒ³ƒAƒtƒBƒ“•ÏŠ·s—ñ
 	Matrix4x4 MakeAffine(const Vector3& scale, const Vector3& rotate, const Vector3& translate);
 
-	// æ­£å°„å½±è¡Œåˆ—
+	// ³Ë‰es—ñ
 	Matrix4x4 Orthographic(float left, float top, float right, float bottom, float nearClip, float farClip);
-	// é€è¦–æŠ•å½±è¡Œåˆ—
+	// “§‹“Š‰es—ñ
 	Matrix4x4 PerspectiveFov(float fovY, float aspectRatio, float nearClip, float farClip);
-	// ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆå¤‰æ›è¡Œåˆ—
+	// ƒrƒ…[ƒ|[ƒg•ÏŠ·s—ñ
 	Matrix4x4 Viewport(float left, float top, float width, float height, float minDepth, float maxDepth);
-	// ã‚¯ãƒ­ã‚¹ç©
+	// ƒNƒƒXÏ
 	Vector3 Cross(const Vector3& v1, const Vector3& v2);
 
 }

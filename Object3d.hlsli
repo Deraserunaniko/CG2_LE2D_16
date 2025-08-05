@@ -1,4 +1,4 @@
-ï»¿struct VertexShaderOutput
+struct VertexShaderOutput
 {
     float32_t4 position : SV_POSITION;
     float32_t2 texcoord : TEXCOORD0;
@@ -28,9 +28,9 @@ struct Material
 
 struct DirectionalLight
 {
-    float32_t4 color; //!<ãƒ©ã‚¤ãƒˆã®è‰²
+    float32_t4 color; //!<ƒ‰ƒCƒg‚ÌF
     
-    float32_t3 direction; //!<ãƒ©ã‚¤ãƒˆã®å‘ã
+    float32_t3 direction; //!<ƒ‰ƒCƒg‚ÌŒü‚«
     
-    float intensity; //!<è¼åº¦
+    float intensity; //!<‹P“x
 };

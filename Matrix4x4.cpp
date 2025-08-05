@@ -1,4 +1,4 @@
-ï»¿#define _USE_MATH_DEFINES 
+#define _USE_MATH_DEFINES 
 #include "Matrix4x4.h"
 #include <math.h>
 #include <cassert>
@@ -6,7 +6,7 @@
 
 using namespace MatrixMath;
 
-// è¡Œåˆ—ã®åŠ æ³•
+// s—ñ‚Ì‰Á–@
 Matrix4x4 MatrixMath::Add(const Matrix4x4& m1, const Matrix4x4& m2) {
     Matrix4x4 result = {};
 
@@ -18,7 +18,7 @@ Matrix4x4 MatrixMath::Add(const Matrix4x4& m1, const Matrix4x4& m2) {
 
     return result;
 }
-// è¡Œåˆ—ã®æ¸›æ³•
+// s—ñ‚ÌŒ¸–@
 Matrix4x4 MatrixMath::Subtract(const Matrix4x4& m1, const Matrix4x4& m2) {
     Matrix4x4 result = {};
 
@@ -29,7 +29,7 @@ Matrix4x4 MatrixMath::Subtract(const Matrix4x4& m1, const Matrix4x4& m2) {
     }
     return result;
 }
-// 4x4è¡Œåˆ—ã®ç©
+// 4x4s—ñ‚ÌÏ
 Matrix4x4 MatrixMath::Multipty(const Matrix4x4& m1, const Matrix4x4& m2) {
     Matrix4x4 result;
 
@@ -44,7 +44,7 @@ Matrix4x4 MatrixMath::Multipty(const Matrix4x4& m1, const Matrix4x4& m2) {
 
     return result;
 }
-// 4x4è¡Œåˆ—ã®é€†è¡Œåˆ—
+// 4x4s—ñ‚Ì‹ts—ñ
 Matrix4x4 MatrixMath::Inverse(const Matrix4x4& m) {
     float aug[4][8] = {};
     for (int row = 0; row < 4; row++) {
@@ -52,35 +52,35 @@ Matrix4x4 MatrixMath::Inverse(const Matrix4x4& m) {
             aug[row][col] = m.m[row][col];
         }
     }
-    // å˜ä½è¡Œåˆ—ã®è¿½åŠ 
+    // ’PˆÊs—ñ‚Ì’Ç‰Á
     aug[0][4] = 1.0f;
     aug[1][5] = 1.0f;
     aug[2][6] = 1.0f;
     aug[3][7] = 1.0f;
 
     for (int i = 0; i < 4; i++) {
-        // ãƒ”ãƒœãƒƒãƒˆãŒ0ã®å ´åˆä¸‹ã®è¡Œã¨å…¥ã‚Œæ›¿ãˆã‚‹
+        // ƒsƒ{ƒbƒg‚ª0‚Ìê‡‰º‚Ìs‚Æ“ü‚ê‘Ö‚¦‚é
         if (aug[i][i] == 0.0f) {
             for (int j = i + 1; j < 4; j++) {
                 if (aug[j][i] != 0.0f) {
-                    // è¡Œã‚’äº¤æ›ã™ã‚‹
-                    for (int k = 0; k < 8; k++) { // åˆ—
-                        float copyNum = aug[i][k]; //ã‚‚ã¨ã‚‚ã¨ã®ä¸Šã®è¡Œã‚’ä»£å…¥
-                        aug[i][k] = aug[j][k]; //ä¸Šã®è¡Œ
-                        aug[j][k] = copyNum; //ä¸‹ã®è¡Œ
+                    // s‚ğŒğŠ·‚·‚é
+                    for (int k = 0; k < 8; k++) { // —ñ
+                        float copyNum = aug[i][k]; //‚à‚Æ‚à‚Æ‚Ìã‚Ìs‚ğ‘ã“ü
+                        aug[i][k] = aug[j][k]; //ã‚Ìs
+                        aug[j][k] = copyNum; //‰º‚Ìs
                     }
                     break;
                 }
             }
         }
 
-        // ãƒ”ãƒœãƒƒãƒˆã‚’1ã«ã™ã‚‹
+        // ƒsƒ{ƒbƒg‚ğ1‚É‚·‚é
         float pivot = aug[i][i];
         for (int k = 0; k < 8; k++) {
             aug[i][k] /= pivot;
         }
 
-        //iåˆ—ç›®ã®ãƒ”ãƒœãƒƒãƒˆä»¥å¤–ã‚’0ã«ã™ã‚‹
+        //i—ñ–Ú‚Ìƒsƒ{ƒbƒgˆÈŠO‚ğ0‚É‚·‚é
         for (int j = 0; j < 4; j++) {
             if (j != i) {
                 float factor = aug[j][i];
@@ -101,7 +101,7 @@ Matrix4x4 MatrixMath::Inverse(const Matrix4x4& m) {
 
     return result;
 }
-// è»¢ç½®è¡Œåˆ—
+// “]’us—ñ
 Matrix4x4 MatrixMath::Transpoce(const Matrix4x4& m) {
     Matrix4x4 result = {};
 
@@ -113,7 +113,7 @@ Matrix4x4 MatrixMath::Transpoce(const Matrix4x4& m) {
 
     return result;
 }
-// å˜ä½è¡Œåˆ—ã®ä½œæˆ
+// ’PˆÊs—ñ‚Ìì¬
 Matrix4x4 MatrixMath::MakeIdentity4x4() {
     Matrix4x4 result = {};
 
@@ -123,104 +123,104 @@ Matrix4x4 MatrixMath::MakeIdentity4x4() {
     return result;
 }
 
-// å¹³è¡Œç§»å‹•è¡Œåˆ—
+// •½sˆÚ“®s—ñ
 Matrix4x4 MatrixMath::MakeTranslate(const Vector3& translate) {
 
     Matrix4x4 result = {};
-    // å˜ä½è¡Œåˆ—ã®ä½œæˆ
+    // ’PˆÊs—ñ‚Ìì¬
     result.m[0][0] = 1.0f;
     result.m[1][1] = 1.0f;
     result.m[2][2] = 1.0f;
     result.m[3][3] = 1.0f;
-    // å¹³è¡Œç§»å‹•ã®æˆåˆ†
+    // •½sˆÚ“®‚Ì¬•ª
     result.m[3][0] = translate.x;
     result.m[3][1] = translate.y;
     result.m[3][2] = translate.z;
 
-    return result;// å®Œæˆã—ãŸå¹³è¡Œç§»å‹•ã‚’è¿”ã™
+    return result;// Š®¬‚µ‚½•½sˆÚ“®‚ğ•Ô‚·
 }
-// æ‹¡å¤§ç¸®å°è¡Œåˆ—
+// Šg‘åk¬s—ñ
 Matrix4x4 MatrixMath::MakeScale(const Vector3& scale) {
 
     Matrix4x4 result = {};
-    // æ‹¡å¤§ç‡ã®è¨­å®š
+    // Šg‘å—¦‚Ìİ’è
     result.m[0][0] = scale.x;
     result.m[1][1] = scale.y;
     result.m[2][2] = scale.z;
     result.m[3][3] = 1.0f;
 
-    return result;// æ‹¡å¤§(ã‚¹ã‚±â€•ãƒªãƒ³ã‚¯)è¡Œåˆ—ã‚’è¿”ã™
+    return result;// Šg‘å(ƒXƒP\ƒŠƒ“ƒN)s—ñ‚ğ•Ô‚·
 }
 
-//Xè»¸ã®å›è»¢è¡Œåˆ—
+//X²‚Ì‰ñ“]s—ñ
 Matrix4x4 MatrixMath::MakeRotateX(float radian) {
 
     Matrix4x4 result = {};
-    // 3æ¬¡å…ƒã®Xè»¸å‘¨ã‚Šã®å›è»¢è¡Œåˆ—
-    result.m[0][0] = 1.0f;// Xè»¸æ–¹å‘ã®ãƒ™ã‚¯ãƒˆãƒ«å¤‰åŒ–ã—ãªã„
-    result.m[1][1] = std::cos(radian); // Yæˆåˆ†ã®å›è»¢
-    result.m[1][2] = std::sin(radian); // Zæˆåˆ†ã¸ã®å½±éŸ¿
-    result.m[2][1] = -std::sin(radian);// Yæˆåˆ†ã¸ã®å½±éŸ¿  
-    result.m[2][2] = std::cos(radian); // Zæˆåˆ†ã®å›è»¢
-    result.m[3][3] = 1.0f;// åŒæ™‚ç³»åˆ—ã®wæˆåˆ†(å›ºå®šå€¤1)
+    // 3ŸŒ³‚ÌX²ü‚è‚Ì‰ñ“]s—ñ
+    result.m[0][0] = 1.0f;// X²•ûŒü‚ÌƒxƒNƒgƒ‹•Ï‰»‚µ‚È‚¢
+    result.m[1][1] = std::cos(radian); // Y¬•ª‚Ì‰ñ“]
+    result.m[1][2] = std::sin(radian); // Z¬•ª‚Ö‚Ì‰e‹¿
+    result.m[2][1] = -std::sin(radian);// Y¬•ª‚Ö‚Ì‰e‹¿  
+    result.m[2][2] = std::cos(radian); // Z¬•ª‚Ì‰ñ“]
+    result.m[3][3] = 1.0f;// “¯Œn—ñ‚Ìw¬•ª(ŒÅ’è’l1)
 
-    return result;// Xè»¸ã®å›è»¢è¡Œåˆ—ã‚’è¿”ã™
+    return result;// X²‚Ì‰ñ“]s—ñ‚ğ•Ô‚·
 }
-// Yè»¸ã®å›è»¢è¡Œåˆ—
+// Y²‚Ì‰ñ“]s—ñ
 Matrix4x4 MatrixMath::MakeRotateY(float radian) {
 
     Matrix4x4 result = {};
-    // 3æ¬¡å…ƒã®Yè»¸å‘¨ã‚Šã®å›è»¢è¡Œåˆ—
-    result.m[0][0] = std::cos(radian); // Xæˆåˆ†ã®å›è»¢
-    result.m[0][2] = -std::sin(radian);// Zæˆåˆ†ã¸ã®å½±éŸ¿
-    result.m[1][1] = 1.0f;// Yè»¸ã¯å›ºå®š
-    result.m[2][0] = std::sin(radian); // Xæˆåˆ†ã¸ã®å½±éŸ¿
-    result.m[2][2] = std::cos(radian); // Zæˆåˆ†ã®å›è»¢
-    result.m[3][3] = 1.0f;// åŒæ¬¡åº§æ¨™ç³»ã®wæˆåˆ†(å›ºå®šå€¤1)
+    // 3ŸŒ³‚ÌY²ü‚è‚Ì‰ñ“]s—ñ
+    result.m[0][0] = std::cos(radian); // X¬•ª‚Ì‰ñ“]
+    result.m[0][2] = -std::sin(radian);// Z¬•ª‚Ö‚Ì‰e‹¿
+    result.m[1][1] = 1.0f;// Y²‚ÍŒÅ’è
+    result.m[2][0] = std::sin(radian); // X¬•ª‚Ö‚Ì‰e‹¿
+    result.m[2][2] = std::cos(radian); // Z¬•ª‚Ì‰ñ“]
+    result.m[3][3] = 1.0f;// “¯ŸÀ•WŒn‚Ìw¬•ª(ŒÅ’è’l1)
 
-    return result;// Yè»¸ã®å›è»¢è¡Œåˆ—ã‚’è¿”ã™
+    return result;// Y²‚Ì‰ñ“]s—ñ‚ğ•Ô‚·
 }
-// Zè»¸ã®å›è»¢è¡Œåˆ—
+// Z²‚Ì‰ñ“]s—ñ
 Matrix4x4 MatrixMath::MakeRotateZ(float radian) {
 
     Matrix4x4 result = {};
-    // 3æ¬¡å…ƒã®Zè»¸å‘¨ã‚Šã®å›è»¢è¡Œåˆ—
-    result.m[0][0] = std::cos(radian); // Xæˆåˆ†ã®å›è»¢
-    result.m[0][1] = std::sin(radian);  // Yæˆåˆ†ã¸ã®å½±éŸ¿  
-    result.m[1][0] = -std::sin(radian); // Xæˆåˆ†ã¸ã®å½±éŸ¿
-    result.m[1][1] = std::cos(radian);  // Yæˆåˆ†ã®å›è»¢
-    result.m[2][2] = 1.0f;// Zè»¸ã¯å›ºå®š
-    result.m[3][3] = 1.0f;// åŒæ™‚åº§æ¨™ç³»ã®wæˆåˆ†(å›ºå®šå€¤1)
+    // 3ŸŒ³‚ÌZ²ü‚è‚Ì‰ñ“]s—ñ
+    result.m[0][0] = std::cos(radian); // X¬•ª‚Ì‰ñ“]
+    result.m[0][1] = std::sin(radian);  // Y¬•ª‚Ö‚Ì‰e‹¿  
+    result.m[1][0] = -std::sin(radian); // X¬•ª‚Ö‚Ì‰e‹¿
+    result.m[1][1] = std::cos(radian);  // Y¬•ª‚Ì‰ñ“]
+    result.m[2][2] = 1.0f;// Z²‚ÍŒÅ’è
+    result.m[3][3] = 1.0f;// “¯À•WŒn‚Ìw¬•ª(ŒÅ’è’l1)
 
-    return result;// Zè»¸ã®å›è»¢è¡Œåˆ—ã‚’è¿”ã™
+    return result;// Z²‚Ì‰ñ“]s—ñ‚ğ•Ô‚·
 }
-// 3æ¬¡å…ƒã‚¢ãƒ•ã‚£ãƒ³å¤‰æ›è¡Œåˆ—
+// 3ŸŒ³ƒAƒtƒBƒ“•ÏŠ·s—ñ
 Matrix4x4 MatrixMath::MakeAffine(const Vector3& scale, const Vector3& rotate, const Vector3& translate) {
 
     Matrix4x4 result = {};
-    // æ‹¡å¤§ç¸®å°ã‚’ç”Ÿæˆ
+    // Šg‘åk¬‚ğ¶¬
     Matrix4x4 scaleMatrix = MakeScale(scale);
 
-    // Xè»¸ã®å›è»¢è¡Œåˆ—ã‚’ç”Ÿæˆ
+    // X²‚Ì‰ñ“]s—ñ‚ğ¶¬
     Matrix4x4 rotateXMatrix = MakeRotateX(rotate.x);
-    // Yè»¸ã®å›è»¢è¡Œåˆ—ã‚’ç”Ÿæˆ
+    // Y²‚Ì‰ñ“]s—ñ‚ğ¶¬
     Matrix4x4 rotateYMatrix = MakeRotateY(rotate.y);
-    // Zè»¸ã®å›è»¢è¡Œåˆ—ã‚’ç”Ÿæˆ
+    // Z²‚Ì‰ñ“]s—ñ‚ğ¶¬
     Matrix4x4 rotateZMatrix = MakeRotateZ(rotate.z);
-    // Xè»¸ã€Yè»¸ã€Zè»¸ã®é †ã«å›è»¢ã‚’åˆæˆ
+    // X²AY²AZ²‚Ì‡‚É‰ñ“]‚ğ‡¬
     Matrix4x4 rotateXYZMatrix = Multipty(Multipty(rotateXMatrix, rotateYMatrix), rotateZMatrix);
 
-    // å¹³è¡Œç§»å‹•ã‚’ç”Ÿæˆ
+    // •½sˆÚ“®‚ğ¶¬
     Matrix4x4 translateMatrix = MakeTranslate(translate);
 
-    // æœ€çµ‚çš„ãªã‚¢ãƒ•ã‚£ãƒ³å¤‰æ›è¡Œåˆ—ï¼š T * R * S
+    // ÅI“I‚ÈƒAƒtƒBƒ“•ÏŠ·s—ñF T * R * S
     result = Multipty(Multipty(scaleMatrix, rotateXYZMatrix), translateMatrix);
 
 
 
     return result;
 }
-// æ­£å°„å½±è¡Œåˆ—
+// ³Ë‰es—ñ
 Matrix4x4 MatrixMath::Orthographic(float left, float top, float right, float bottom, float nearClip, float farClip) {
 
     Matrix4x4 result = {};
@@ -236,15 +236,15 @@ Matrix4x4 MatrixMath::Orthographic(float left, float top, float right, float bot
 
     return result;
 }
-// é€è¦–æŠ•å½±è¡Œåˆ—
+// “§‹“Š‰es—ñ
 Matrix4x4 MatrixMath::PerspectiveFov(float fovY, float aspectRatio, float nearClip, float farClip) {
 
     Matrix4x4 result = {};
 
-    // ã‚³ã‚¿ãƒ³ã‚¸ã‚§ãƒ³ãƒˆ(fovY/2)
+    // ƒRƒ^ƒ“ƒWƒFƒ“ƒg(fovY/2)
     float f = 1.0f / std::tan(fovY / 2.0f);
 
-    // é€è¦–æŠ•å½±è¡Œåˆ—ã®å„è¦ç´ è¨­å®š
+    // “§‹“Š‰es—ñ‚ÌŠe—v‘fİ’è
     result.m[0][0] = f / aspectRatio;
     result.m[1][1] = f;
     result.m[2][2] = farClip / (farClip - nearClip);
@@ -253,7 +253,7 @@ Matrix4x4 MatrixMath::PerspectiveFov(float fovY, float aspectRatio, float nearCl
 
     return result;
 }
-// ãƒ“ãƒ¥ãƒ¼ãƒãƒ¼ãƒˆå¤‰æ›è¡Œåˆ—
+// ƒrƒ…[ƒ|[ƒg•ÏŠ·s—ñ
 Matrix4x4 MatrixMath::Viewport(float left, float top, float width, float height, float minDepth, float maxDepth) {
 
     Matrix4x4 result = {};
@@ -268,7 +268,7 @@ Matrix4x4 MatrixMath::Viewport(float left, float top, float width, float height,
 
     return result;
 }
-// ã‚¯ãƒ­ã‚¹ç©
+// ƒNƒƒXÏ
 Vector3 MatrixMath::Cross(const Vector3& v1, const Vector3& v2) {
     return Vector3(
         v1.y * v2.z - v1.z * v2.y,

@@ -1,4 +1,4 @@
-ï»¿#include "Object3d.hlsli"
+#include "Object3d.hlsli"
 
 ConstantBuffer<Material> gMaterial : register(b0);
 
@@ -32,7 +32,7 @@ PixelShaderOutput main(VertexShaderOutput input)
         output.color = gMaterial.color * textureColor * gDirectionalLight.color * cos * gDirectionalLight.intensity;
     }
     else
-    { //Lightingã—ãªã„å ´åˆã€‚å‰å›ã¾ã§ã¨åŒã˜æ¼”ç®—
+    { //Lighting‚µ‚È‚¢ê‡B‘O‰ñ‚Ü‚Å‚Æ“¯‚¶‰‰Z
         output.color = gMaterial.color * textureColor;
     }
     
